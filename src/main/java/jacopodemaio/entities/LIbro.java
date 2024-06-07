@@ -41,11 +41,13 @@ public class LIbro extends OggettoLibreria {
         this.genere = genere;
     }
 
+    // qui ho cambiato il metodo classico del toString perche non mi piaceva come usciva stampato
     @Override
     public String toString() {
         return "LIbro{" +
-                "autore='" + autore + '\'' +
+                super.toString() +
+                ", autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
-                '}';
+                "} ";
     }
 }

@@ -34,10 +34,12 @@ public class Rivista extends OggettoLibreria {
         this.periodicità = periodicità;
     }
 
+    // qui ho cambiato il metodo classico del toString perche non mi piaceva come usciva stampato
     @Override
     public String toString() {
         return "Rivista{" +
-                "periodicità=" + periodicità +
-                '}';
+                super.toString() +
+                ", periodicità=" + periodicità +
+                "} ";
     }
 }

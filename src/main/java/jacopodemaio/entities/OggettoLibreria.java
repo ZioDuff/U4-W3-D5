@@ -62,13 +62,14 @@ public abstract class OggettoLibreria {
         this.numeroPagine = numeroPagine;
     }
 
+    // qui ho cambiato il metodo classico del toString perche non mi piaceva come usciva stampato
     @Override
     public String toString() {
-        return "OggettoLibreria{" +
+        return
                 "isbn=" + isbn +
-                ", titolo='" + titolo + '\'' +
-                ", annoPubblicazione=" + annoPubblicazione +
-                ", numeroPagine=" + numeroPagine +
-                '}';
+                        ", titolo='" + titolo + '\'' +
+                        ", annoPubblicazione=" + annoPubblicazione +
+                        ", numeroPagine=" + numeroPagine
+                ;
     }
 }
