@@ -3,10 +3,13 @@ package jacopodemaio.entities;
 import jacopodemaio.enums.Periodicità;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 @DiscriminatorValue("Rivista")
 public class Rivista extends OggettoLibreria {
+    @Enumerated(EnumType.STRING)
     protected Periodicità periodicità;
 
 //    costruttore
