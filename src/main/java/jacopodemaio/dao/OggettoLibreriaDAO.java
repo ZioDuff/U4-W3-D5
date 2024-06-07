@@ -52,15 +52,15 @@ public class OggettoLibreriaDAO {
     }
 
     public List<OggettoLibreria> findByYear(int year) {
-        EntityTransaction transaction = em.getTransaction();
-        transaction.begin();
+// qui non abbiamo bisgno della transaction perche andiamo semplicemente a selezionare senza modificare nulla
         TypedQuery<OggettoLibreria> queryByYear = em.createQuery("SELECT o FROM OggettoLibreria o WHERE o.annoPubblicazione = :year", OggettoLibreria.class);
+        queryByYear.setParameter("year", year);
         return queryByYear.getResultList();
     }
 
     public List<LIbro> findByAuthor(String author) {
-
-        TypedQuery<LIbro> queryByAuthor = em.createQuery("SELECt o FROM LIbro o WHERE o.autore = :author", LIbro.class);
+// qui non abbiamo bisgno della transaction perche andiamo semplicemente a selezionare senza modificare nulla
+        TypedQuery<LIbro> queryByAuthor = em.createQuery("SELECT o FROM LIbro o WHERE o.autore = :author", LIbro.class);
 
         queryByAuthor.setParameter("author", author);
 
@@ -69,7 +69,8 @@ public class OggettoLibreriaDAO {
     }
 
     public List<OggettoLibreria> findByPartialTitle(String titolo) {
-
+// qui non abbiamo bisgno della transaction perche andiamo semplicemente a selezionare senza modificare nulla
+//        questa ho vuluto farla named
         TypedQuery<OggettoLibreria> queryByTitle = em.createNamedQuery("findByPartialTitle", OggettoLibreria.class);
 
         queryByTitle.setParameter("titolo", titolo + "%");

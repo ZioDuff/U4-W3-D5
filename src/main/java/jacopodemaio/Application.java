@@ -39,6 +39,14 @@ public class Application {
 //            Rivista rivista = new Rivista(faker.book().title(), 2024, 76, Periodicità.SETTIMANALE);
 //            ol.save(rivista);
 
+//            Utente utente = new Utente(faker.funnyName().name(), faker.pokemon().name(), LocalDate.of(2000, 4, 30));
+//            ud.save(utente);
+
+//            Utente utenteDalDb = ud.findById(UUID.fromString("9ce3a2c1-bb3b-4dba-b726-aaf0aeb741d9"));
+//            OggettoLibreria oggettoDalDb = ol.findById(UUID.fromString("e936d36a-8859-4755-a4c7-f78c227b7312"));
+//            Prestito prestito = new Prestito(utenteDalDb, oggettoDalDb, LocalDate.now(), LocalDate.now().plusDays(30), null);
+//            pd.save(prestito);
+
             System.out.println("------------ SECONDA RICHIESTA -----------------");
 
 //            qua ho eliminato 4 oggetti, ho approfittato della richiesta del compito perche avevo invertito le pagine con l'anno di pubblicazione :/
@@ -76,6 +84,8 @@ public class Application {
 
             List<OggettoLibreria> foundbyPartialTitle = ol.findByPartialTitle("th");
             foundbyPartialTitle.forEach(System.out::println);
+
+            System.out.println("--------------- SETTIMA RICHEISTA-----------------------");
 
 
         } catch (Exception ex) {

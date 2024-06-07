@@ -26,7 +26,7 @@ public class Prestito {
     @Column(name = "data_restituzione")
     private LocalDate dataRestituzione;
 
-    @Column(name = "data_effettiva_restituzione", nullable = false)
+    @Column(name = "data_effettiva_restituzione")
     private LocalDate dataEffettivaDiRestituzione;
 
 //    costruttore
