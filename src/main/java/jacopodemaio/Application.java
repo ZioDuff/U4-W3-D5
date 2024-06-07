@@ -10,6 +10,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -86,6 +87,14 @@ public class Application {
             foundbyPartialTitle.forEach(System.out::println);
 
             System.out.println("--------------- SETTIMA RICHEISTA-----------------------");
+
+//            qua andiamo a prendere l'id della persona e fa un controllo se effettivamente non ha restituito l'elemento
+            ol.itemsOnLoan(UUID.fromString("9ce3a2c1-bb3b-4dba-b726-aaf0aeb741d9")).forEach(System.out::println);
+
+            System.out.println("--------------- OTTAVA RICHHIESTA ---------------------");
+
+//            siccome ho creato elementi con la data di oggi per come ho creato il metodo non ritorna mai nulla, quin ho dovuto aumentare la data messa come parametro 
+            pd.expiredLoan(LocalDate.now().plusDays(120)).forEach(System.out::println);
 
 
         } catch (Exception ex) {

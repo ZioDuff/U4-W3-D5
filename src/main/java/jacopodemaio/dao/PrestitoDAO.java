@@ -4,7 +4,10 @@ import jacopodemaio.entities.Prestito;
 import jacopodemaio.exceptions.NotFoundExceptions;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public class PrestitoDAO {
@@ -47,4 +50,12 @@ public class PrestitoDAO {
         System.out.println("il prestito di " + foundedPrestito.getUtente() + " è stato eliminato con successo dal database");
 
     }
+
+    public List<Prestito> expiredLoan(LocalDate date) {
+        TypedQuery<Prestito> query = em.createQuery("SELECT p FROM Prestito p WHERE p.dataRestituzione < :date AND p.dataEffettivaDiRestituzione IS NULL", Prestito.class);
+        query.setParameter("date", date);
+        return query.getResultList();
+    }
+
+
 }

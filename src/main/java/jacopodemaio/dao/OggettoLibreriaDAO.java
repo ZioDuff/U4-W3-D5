@@ -80,5 +80,12 @@ public class OggettoLibreriaDAO {
 
     }
 
+    public List<OggettoLibreria> itemsOnLoan(UUID tesseraId) {
+        TypedQuery<OggettoLibreria> query = em.createQuery("SELECT o.catalogo FROM Prestito o WHERE o.utente.idTessera = :tesseraId AND o.dataEffettivaDiRestituzione IS NULL", OggettoLibreria.class);
+        query.setParameter("tesseraId", tesseraId);
+        return query.getResultList();
+    }
+
+
 }
 
