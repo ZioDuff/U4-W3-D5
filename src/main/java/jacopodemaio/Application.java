@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import jacopodemaio.dao.OggettoLibreriaDAO;
 import jacopodemaio.dao.PrestitoDAO;
 import jacopodemaio.dao.UtenteDAO;
+import jacopodemaio.entities.LIbro;
 import jacopodemaio.entities.OggettoLibreria;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -32,26 +33,49 @@ public class Application {
             System.out.println("------------ PRIMA RICHIESTA -----------------");
 
 //          1 richiesta del compito salvataggio di libri e riviste
-//            LIbro libro = new LIbro(faker.book().title(), 1970, 78, faker.book().author(), faker.book().genre());
+//            LIbro libro = new LIbro(faker.book().title(), 1986, 400, faker.book().author(), faker.book().genre());
 //            ol.save(libro);
 //
-//            Rivista rivista = new Rivista(faker.book().title(), 45, 2011, Periodicità.SETTIMANALE);
+//            Rivista rivista = new Rivista(faker.book().title(), 2024, 76, Periodicità.SETTIMANALE);
 //            ol.save(rivista);
 
             System.out.println("------------ SECONDA RICHIESTA -----------------");
+
+//            qua ho eliminato 4 oggetti, ho approfittato della richiesta del compito perche avevo invertito le pagine con l'anno di pubblicazione :/
+
+//            ol.foundByIdAndDelete(UUID.fromString("bd1fa028-828d-4672-9f36-f7e0e1b490c4"));
+//            ol.foundByIdAndDelete(UUID.fromString("c54a5730-02c4-40a2-bf13-bfa8ebfaaab4"));
+//            ol.foundByIdAndDelete(UUID.fromString("6cfa3aad-2996-42ee-9b4b-2dbb8e874d92"));
+//            ol.foundByIdAndDelete(UUID.fromString("3b0e770e-5d35-40cd-907e-9948c36b1c4e"));
+
+
+            System.out.println("------------ TERZA RICHIESTA -----------------");
 
 //            2 richiesta del compito è quella di cercare un elemento nel catalogo tramite isbn
 
 //            come prima cosa dobbiamo raggiunger quell'elemento con la persistenza
 
 //            siccome nei metodi ho messo come parametro l' uuid invece di string devo convertire il parametro è un easy-fix ma voglio tenerlo cosi perchè è un metodo alternativo :)
-            OggettoLibreria foundObj = ol.findById(UUID.fromString("bd1fa028-828d-4672-9f36-f7e0e1b490c4"));
+            OggettoLibreria foundObj = ol.findById(UUID.fromString("37a3a6e3-188d-4a7e-bfad-ba49f77f0564"));
             System.out.println(foundObj);
 
-            System.out.println("------------ TERZA RICHIESTA -----------------");
+            System.out.println("------------ QUARTA RICHIESTA -----------------");
 
-            List<OggettoLibreria> foundObjByYear = ol.findByYear(30);
+//            qui andiamo a richiamare il metodo per trova i libri o riviste in quel dato anno
+//            faccio ritornare una lista perchè potrebbero esserci piu elementi in quell'anno
+
+            List<OggettoLibreria> foundObjByYear = ol.findByYear(1986);
             System.out.println(foundObjByYear);
+
+            System.out.println("---------------- QUINTA RICHIESTA -------------------");
+
+            List<LIbro> foundByAuthor = ol.findByAuthor("Blair Reichel");
+            foundByAuthor.forEach(System.out::println);
+
+            System.out.println("--------------- SESTA RICHIESTA -------------------------");
+
+            List<OggettoLibreria> foundbyPartialTitle = ol.findByPartialTitle("th");
+            foundbyPartialTitle.forEach(System.out::println);
 
 
         } catch (Exception ex) {

@@ -7,6 +7,7 @@ import java.util.UUID;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "Libreria")
+@NamedQuery(name = "findByPartialTitle", query = "SELECT o FROM OggettoLibreria o WHERE LOWER(o.titolo) LIKE LOWER(:titolo)")
 public abstract class OggettoLibreria {
     @Id
     @GeneratedValue
