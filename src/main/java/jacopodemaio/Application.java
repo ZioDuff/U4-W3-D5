@@ -93,7 +93,7 @@ public class Application {
 
             System.out.println("--------------- OTTAVA RICHHIESTA ---------------------");
 
-//            siccome ho creato elementi con la data di oggi per come ho creato il metodo non ritorna mai nulla, quin ho dovuto aumentare la data messa come parametro 
+//            siccome ho creato elementi con la data di oggi per come ho creato il metodo non ritorna mai nulla, quin ho dovuto aumentare la data messa come parametro
             pd.expiredLoan(LocalDate.now().plusDays(120)).forEach(System.out::println);
 
 
